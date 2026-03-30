@@ -77,11 +77,27 @@ def home():
                 margin-bottom: 24px;
             }
 
+            .navbar {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 10px 0 10px 0;
+            margin-bottom: 10px;
+            }
+
+        .nav-left img {
+            height: 70px;          /* BIGGER */
+            width: auto;
+            object-fit: contain;
+            display: block;
+            }
+            .navbar {
+            padding: 8px 0 0 0;
+            margin-bottom: 5px;
+            }
             .nav-left img {
-                height: 42px;
-                width: auto;
-                object-fit: contain;
-                display: block;
+            height: 70px;
+            mix-blend-mode: multiply;
             }
 
             .hero {
