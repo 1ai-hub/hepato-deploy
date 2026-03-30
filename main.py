@@ -36,10 +36,11 @@ def home():
             :root {
                 --purple: #7c3aed;
                 --violet: #9333ea;
-                --gold: #e0b328;
+                --gold: #d9a923;
                 --gold-soft: #f5d76e;
                 --bg1: #fcfbff;
-                --bg2: #fffaf0;
+                --bg2: #fffaf2;
+                --bg3: #fdf5ff;
                 --text: #1f2937;
                 --muted: #6b7280;
                 --border: rgba(124, 58, 237, 0.10);
@@ -56,100 +57,101 @@ def home():
                 font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
                 color: var(--text);
                 background:
-                    radial-gradient(circle at 15% 20%, rgba(224, 179, 40, 0.12), transparent 28%),
-                    radial-gradient(circle at 85% 18%, rgba(147, 51, 234, 0.12), transparent 25%),
-                    radial-gradient(circle at 70% 80%, rgba(224, 179, 40, 0.10), transparent 24%),
-                    linear-gradient(135deg, var(--bg1), var(--bg2), #faf5ff);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 32px 16px;
+                    radial-gradient(circle at 12% 20%, rgba(217, 169, 35, 0.10), transparent 24%),
+                    radial-gradient(circle at 88% 18%, rgba(147, 51, 234, 0.10), transparent 22%),
+                    radial-gradient(circle at 70% 82%, rgba(217, 169, 35, 0.08), transparent 20%),
+                    linear-gradient(135deg, var(--bg1), var(--bg2), var(--bg3));
+                padding: 28px 18px;
             }
 
             .shell {
                 width: 100%;
-                max-width: 880px;
+                max-width: 1120px;
+                margin: 0 auto;
+            }
+
+            .navbar {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                margin-bottom: 24px;
+            }
+
+            .nav-left img {
+                height: 42px;
+                width: auto;
+                object-fit: contain;
+                display: block;
             }
 
             .hero {
                 text-align: center;
-                margin-bottom: 20px;
-            }
-
-            .logo-wrap {
-                display: flex;
-                justify-content: center;
-                margin-bottom: 16px;
-            }
-
-            .logo-wrap img {
-                max-width: 380px;
-                width: 100%;
-                height: auto;
-                display: block;
+                margin-bottom: 28px;
             }
 
             .hero h1 {
                 margin: 0 0 10px 0;
-                font-size: 2rem;
-                font-weight: 700;
-                letter-spacing: -0.02em;
+                font-size: 2.2rem;
+                font-weight: 750;
+                letter-spacing: -0.03em;
             }
 
             .hero p {
                 margin: 0 auto;
-                max-width: 640px;
+                max-width: 720px;
                 color: var(--muted);
-                line-height: 1.6;
-                font-size: 1rem;
+                line-height: 1.65;
+                font-size: 1.02rem;
             }
 
             .grid {
                 display: grid;
-                grid-template-columns: 1.1fr 0.9fr;
-                gap: 20px;
-                margin-top: 26px;
+                grid-template-columns: 1.05fr 0.95fr;
+                gap: 22px;
+                align-items: start;
             }
 
             .card {
                 background: var(--card);
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
                 border: 1px solid var(--border);
-                border-radius: 22px;
+                border-radius: 24px;
                 box-shadow:
                     0 10px 30px rgba(17, 24, 39, 0.06),
-                    0 2px 8px rgba(17, 24, 39, 0.04);
-                padding: 24px;
+                    0 3px 10px rgba(17, 24, 39, 0.04);
+                padding: 28px;
             }
 
             .card h2 {
-                margin: 0 0 16px 0;
-                font-size: 1.1rem;
+                margin: 0 0 18px 0;
+                font-size: 1.15rem;
+                font-weight: 700;
             }
 
             label {
                 display: block;
-                font-size: 0.92rem;
-                font-weight: 600;
+                font-size: 0.94rem;
+                font-weight: 650;
                 margin-bottom: 8px;
             }
 
             .hint {
                 color: var(--muted);
-                font-size: 0.86rem;
+                font-size: 0.87rem;
                 margin-top: -2px;
                 margin-bottom: 14px;
+                line-height: 1.5;
             }
 
             input[type="text"],
             input[type="file"] {
                 width: 100%;
-                border: 1px solid rgba(107, 114, 128, 0.2);
-                background: rgba(255, 255, 255, 0.9);
-                border-radius: 14px;
-                padding: 12px 14px;
-                font-size: 0.95rem;
+                border: 1px solid rgba(107, 114, 128, 0.18);
+                background: rgba(255, 255, 255, 0.92);
+                border-radius: 16px;
+                padding: 13px 15px;
+                font-size: 0.96rem;
                 outline: none;
                 transition: 0.2s ease;
                 margin-bottom: 16px;
@@ -157,7 +159,7 @@ def home():
 
             input[type="text"]:focus,
             input[type="file"]:focus {
-                border-color: rgba(124, 58, 237, 0.45);
+                border-color: rgba(124, 58, 237, 0.40);
                 box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.10);
             }
 
@@ -167,7 +169,7 @@ def home():
                 gap: 12px;
                 color: var(--muted);
                 font-size: 0.84rem;
-                margin: 4px 0 14px 0;
+                margin: 6px 0 16px 0;
             }
 
             .divider::before,
@@ -181,87 +183,95 @@ def home():
             button {
                 width: 100%;
                 border: none;
-                border-radius: 14px;
-                padding: 13px 16px;
-                font-size: 0.96rem;
-                font-weight: 700;
+                border-radius: 16px;
+                padding: 14px 16px;
+                font-size: 1rem;
+                font-weight: 750;
                 color: white;
                 cursor: pointer;
-                background: linear-gradient(90deg, var(--violet), var(--gold));
-                box-shadow: 0 8px 18px rgba(124, 58, 237, 0.18);
+                background: linear-gradient(90deg, var(--violet), #b453c6 45%, var(--gold));
+                box-shadow: 0 10px 22px rgba(124, 58, 237, 0.16);
                 transition: transform 0.15s ease, opacity 0.15s ease;
+                margin-top: 6px;
             }
 
             button:hover {
-                opacity: 0.96;
+                opacity: 0.97;
                 transform: translateY(-1px);
             }
 
             button:disabled {
-                opacity: 0.65;
+                opacity: 0.7;
                 cursor: wait;
                 transform: none;
-            }
-
-            .result-box {
-                background: rgba(248, 250, 252, 0.95);
-                border: 1px solid rgba(107, 114, 128, 0.12);
-                border-radius: 16px;
-                padding: 16px;
-                min-height: 220px;
-                overflow-x: auto;
-                white-space: pre-wrap;
-                word-break: break-word;
-                font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-                font-size: 0.9rem;
-                line-height: 1.5;
             }
 
             .pill-row {
                 display: flex;
                 gap: 10px;
                 flex-wrap: wrap;
-                margin-top: 14px;
+                margin-top: 18px;
             }
 
             .pill {
                 padding: 8px 12px;
                 border-radius: 999px;
                 font-size: 0.82rem;
-                font-weight: 600;
-                background: rgba(124, 58, 237, 0.08);
+                font-weight: 650;
+                background: rgba(124, 58, 237, 0.06);
                 color: var(--purple);
                 border: 1px solid rgba(124, 58, 237, 0.12);
             }
 
-            .footer-note {
-                margin-top: 14px;
-                font-size: 0.82rem;
-                color: var(--muted);
-                line-height: 1.5;
+            .result-box {
+                background: rgba(248, 250, 252, 0.95);
+                border: 1px solid rgba(107, 114, 128, 0.10);
+                border-radius: 18px;
+                padding: 18px;
+                min-height: 290px;
+                overflow-x: auto;
+                white-space: pre-wrap;
+                word-break: break-word;
+                font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+                font-size: 0.92rem;
+                line-height: 1.55;
             }
 
-            @media (max-width: 780px) {
+            .footer-note {
+                margin-top: 14px;
+                font-size: 0.84rem;
+                color: var(--muted);
+                line-height: 1.55;
+            }
+
+            @media (max-width: 860px) {
                 .grid {
                     grid-template-columns: 1fr;
                 }
 
                 .hero h1 {
-                    font-size: 1.6rem;
+                    font-size: 1.8rem;
                 }
 
                 .card {
-                    padding: 20px;
+                    padding: 22px;
+                }
+
+                .nav-left img {
+                    height: 36px;
                 }
             }
         </style>
     </head>
     <body>
         <div class="shell">
-            <div class="hero">
-                <div class="logo-wrap">
+            <div class="navbar">
+                <div class="nav-left">
                     <img src="/static/logo.png" alt="Axleres AI logo" />
                 </div>
+            </div>
+
+            <div class="hero">
                 <h1>Hepatotoxicity Predictor</h1>
                 <p>
                     Predict liver toxicity risk directly from molecular structure using the
@@ -275,7 +285,9 @@ def home():
 
                     <form id="predictForm">
                         <label for="smiles">SMILES input</label>
-                        <div class="hint">Paste a valid SMILES string for single-molecule prediction.</div>
+                        <div class="hint">
+                            Paste a valid SMILES string for single-molecule prediction.
+                        </div>
                         <input
                             type="text"
                             id="smiles"
