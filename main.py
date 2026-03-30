@@ -10,7 +10,6 @@ from model_utils import predict_toxicity
 
 app = FastAPI(title="Axleres AI Hepatotoxicity Predictor", version="1.0.0")
 
-# Static files
 BASE_DIR = Path(__file__).resolve().parent
 STATIC_DIR = BASE_DIR / "static"
 STATIC_DIR.mkdir(exist_ok=True)
@@ -37,14 +36,13 @@ def home():
                 --purple: #7c3aed;
                 --violet: #9333ea;
                 --gold: #d9a923;
-                --gold-soft: #f5d76e;
                 --bg1: #fcfbff;
                 --bg2: #fffaf2;
                 --bg3: #fdf5ff;
                 --text: #1f2937;
                 --muted: #6b7280;
                 --border: rgba(124, 58, 237, 0.10);
-                --card: rgba(255, 255, 255, 0.82);
+                --card: rgba(255, 255, 255, 0.84);
             }
 
             * {
@@ -61,60 +59,45 @@ def home():
                     radial-gradient(circle at 88% 18%, rgba(147, 51, 234, 0.10), transparent 22%),
                     radial-gradient(circle at 70% 82%, rgba(217, 169, 35, 0.08), transparent 20%),
                     linear-gradient(135deg, var(--bg1), var(--bg2), var(--bg3));
-                padding: 28px 18px;
+                padding: 18px 18px 32px 18px;
             }
 
             .shell {
                 width: 100%;
                 max-width: 1120px;
                 margin: 0 auto;
+                position: relative;
             }
 
             .navbar {
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                margin-bottom: 24px;
+            position: fixed;   /* NOT absolute */
+            top: 16px;
+            left: 20px;
+            z-index: 1000;
             }
-
-            .navbar {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            padding: 10px 0 10px 0;
-            margin-bottom: 10px;
-            }
-
-        .nav-left img {
-            height: 180px;          /* BIGGER */
+            .nav-left img {
+            height: 110px;   /* bigger */
             width: auto;
             object-fit: contain;
             display: block;
             }
-            .navbar {
-            padding: 8px 0 0 0;
-            margin-bottom: 5px;
-            }
-            .nav-left img {
-            height: 180px;
-            mix-blend-mode: multiply;
-            }
 
             .hero {
                 text-align: center;
-                margin-bottom: 28px;
+                padding-top: 82px;
+                margin-bottom: 22px;
             }
 
             .hero h1 {
                 margin: 0 0 10px 0;
-                font-size: 2.2rem;
-                font-weight: 750;
+                font-size: 2.15rem;
+                font-weight: 760;
                 letter-spacing: -0.03em;
             }
 
             .hero p {
                 margin: 0 auto;
-                max-width: 720px;
+                max-width: 760px;
                 color: var(--muted);
                 line-height: 1.65;
                 font-size: 1.02rem;
@@ -261,20 +244,34 @@ def home():
             }
 
             @media (max-width: 860px) {
-                .grid {
-                    grid-template-columns: 1fr;
+                body {
+                    padding: 16px 14px 24px 14px;
+                }
+
+                .navbar {
+                    position: static;
+                    margin-bottom: 6px;
+                }
+
+                .nav-left img {
+                    height: 72px;
+                }
+
+                .hero {
+                    padding-top: 6px;
+                    margin-bottom: 18px;
                 }
 
                 .hero h1 {
                     font-size: 1.8rem;
                 }
 
-                .card {
-                    padding: 22px;
+                .grid {
+                    grid-template-columns: 1fr;
                 }
 
-                .nav-left img {
-                    height: 36px;
+                .card {
+                    padding: 22px;
                 }
             }
         </style>
@@ -319,12 +316,6 @@ def home():
 
                         <button id="submitBtn" type="submit">Run Prediction</button>
                     </form>
-
-                    <div class="pill-row">
-                        <div class="pill">SMILES</div>
-                        <div class="pill">MOL / SDF</div>
-                        <div class="pill">Probability Output</div>
-                    </div>
                 </div>
 
                 <div class="card">
@@ -375,12 +366,7 @@ def home():
                     });
 
                     const data = await response.json();
-
-                    if (!response.ok) {
-                        result.textContent = JSON.stringify(data, null, 2);
-                    } else {
-                        result.textContent = JSON.stringify(data, null, 2);
-                    }
+                    result.textContent = JSON.stringify(data, null, 2);
                 } catch (err) {
                     result.textContent = "Error: " + err.message;
                 } finally {
