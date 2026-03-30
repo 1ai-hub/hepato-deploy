@@ -86,7 +86,7 @@ def home():
             }
 
         .nav-left img {
-            height: 100px;          /* BIGGER */
+            height: 180px;          /* BIGGER */
             width: auto;
             object-fit: contain;
             display: block;
@@ -96,7 +96,7 @@ def home():
             margin-bottom: 5px;
             }
             .nav-left img {
-            height: 100px;
+            height: 180px;
             mix-blend-mode: multiply;
             }
 
